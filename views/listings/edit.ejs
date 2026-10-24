@@ -8,6 +8,8 @@
         <form
             method="POST"
             action="/listings/<%= listing._id %>?_method=PUT"
+            class="needs-validation"
+            novalidate
         >
 
             <!-- Title -->
@@ -21,6 +23,7 @@
                     class="form-control"
                     required
                 >
+                <div class="valid-feedback">Title Looks Good!</div>
             </div>
 
             <!-- Description -->
@@ -31,7 +34,9 @@
                     name="listing[description]"
                     class="form-control"
                     rows="4"
+                    required
                 ><%= listing.description %></textarea>
+                <div class="invalid-feedback">Please enter a short Description.</div>
             </div>
 
             <!-- Image -->
@@ -43,6 +48,7 @@
                     value="<%= listing.image.url %>"
                     type="text"
                     class="form-control"
+                    required
                 >
             </div>
 
@@ -69,7 +75,9 @@
                         value="<%= listing.country %>"
                         type="text"
                         class="form-control"
+                        required
                     >
+                    <div class="invalid-feedback">Please enter a valid Country.</div>
                 </div>
 
             </div>
@@ -83,7 +91,9 @@
                     value="<%= listing.location %>"
                     type="text"
                     class="form-control"
+                    required
                 >
+                <div class="invalid-feedback">Please enter a valid Location.</div>
             </div>
 
             <button class="btn btn-dark edit-btn mt-3" type="submit">
@@ -94,3 +104,4 @@
 
     </div>
 </div>
+<script src="/js/script.js"></script>
